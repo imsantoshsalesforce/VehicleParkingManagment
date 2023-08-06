@@ -1,0 +1,35 @@
+table.VehicleInfoTable {
+  width: 100%;
+  background-color: #ffffff;
+  border-collapse: collapse;
+  border-width: 2px;
+  border-color: hsl(48, 100%, 50%);
+  border-style: solid;
+  color: #000000;
+}
+
+table.VehicleInfoTable td,
+table.VehicleInfoTable th {
+  border-width: 2px;
+  border-color: #ffcc00;
+  border-style: solid;
+  padding: 8px;
+}
+
+table.VehicleInfoTable thead {
+  background-color: #ffcc00;
+}
+
+/* Setting index serial number */
+tbody {
+  counter-reset: Serial Section;
+}
+
+table {
+  border-collapse: separate;
+}
+
+tr td:first-child:before {
+  counter-increment: Serial;
+  content: counter(Serial);
+}

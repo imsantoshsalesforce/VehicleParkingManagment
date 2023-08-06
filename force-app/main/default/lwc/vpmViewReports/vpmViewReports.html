@@ -1,0 +1,71 @@
+<!-- sldsValidatorIgnore -->
+<template>
+  <lightning-card title="View Reports"> </lightning-card>
+  <template if:true={displayDateSelection}>
+    <lightning-card>
+      <div class="slds-grid slds-align_absolute-center">
+        <div class="slds-col">
+          <label for="start">From Date:</label>
+          <input
+            type="date"
+            id="start"
+            name="from-date"
+            onchange={getDate}
+            value={startDateValue}
+          />
+        </div>
+
+        <div class="slds-col">
+          <label for="end">To Date:</label>
+          <!-- sldsValidatorIgnoreNextLine -->
+          <input
+            type="date"
+            id="end"
+            name="end-date"
+            onchange={getDate}
+            value={endDateValue}
+          />
+        </div>
+
+        <div class="slds-col">
+          <button
+            class="slds-badge slds-theme_warning"
+            onclick={generateReport}
+          >
+            Generate Report
+          </button>
+        </div>
+      </div>
+    </lightning-card>
+  </template>
+  <template if:true={displayReport}>
+    <lightning-card>
+      <table class="VehicleInfoTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Vehicle no.</th>
+            <th>Company</th>
+            <th>Category</th>
+            <th>Parking Number</th>
+            <th>Vehicle Owner</th>
+          </tr>
+        </thead>
+        <tbody>
+          <template if:true={recItem}>
+            <template for:each={recItem} for:item="info">
+              <tr key={info.Id}>
+                <td></td>
+                <td>{info.registration_number__c}</td>
+                <td>{info.vehicle_company_name__c}</td>
+                <td>{info.vehicle_category__c}</td>
+                <td>{info.parking_number__c}</td>
+                <td>{info.owner_name__c}</td>
+              </tr>
+            </template>
+          </template>
+        </tbody>
+      </table>
+    </lightning-card>
+  </template>
+</template>

@@ -1,0 +1,7 @@
+<template>
+  <lightning-card title="Revenue By Category" icon-name="utility:chart">
+    <template if:true={chartConfiguration}>
+      <c-gen-pie-chart chart-config={chartConfiguration}></c-gen-pie-chart>
+    </template>
+  </lightning-card>
+</template>

@@ -1,0 +1,107 @@
+<template>
+  <!-- <lightning-card title="VPM Dashboard"> </lightning-card> -->
+  <div class="slds-grid slds-gutters">
+    <div class="slds-col">
+      <lightning-card>
+        <div class="slds-grid slds-grid_vertical slds-align_absolute-center">
+          <div class="slds-col">
+            <lightning-icon
+              icon-name="utility:travel_and_places"
+              alternative-text="travel"
+              title="travel"
+            >
+            </lightning-icon>
+          </div>
+          <div class="slds-col">
+            <div class="number-text" id="total">
+              {totalVehicleParkedCount}
+            </div>
+          </div>
+          <div class="slds-col">
+            <div>TOTAL VEHICLE PARKED</div>
+          </div>
+        </div>
+      </lightning-card>
+    </div>
+    <div class="slds-col">
+      <lightning-card>
+        <div class="slds-grid slds-grid_vertical slds-align_absolute-center">
+          <div class="slds-col">
+            <lightning-icon
+              icon-name="utility:arrowdown"
+              alternative-text="travel"
+              title="travel"
+            >
+            </lightning-icon>
+          </div>
+          <div class="slds-col">
+            <div class="number-text" id="in">
+              {vehiclesInCount}
+            </div>
+          </div>
+          <div class="slds-col">
+            <div>VEHICLE IN</div>
+          </div>
+        </div>
+      </lightning-card>
+    </div>
+    <div class="slds-col">
+      <lightning-card>
+        <div class="slds-grid slds-grid_vertical slds-align_absolute-center">
+          <div class="slds-col">
+            <lightning-icon
+              icon-name="utility:arrowup"
+              alternative-text="travel"
+              title="travel"
+            >
+            </lightning-icon>
+          </div>
+          <div class="slds-col">
+            <div class="number-text" id="out">
+              {vehiclesOutCount}
+            </div>
+          </div>
+          <div class="slds-col">
+            <div>VEHICLE OUT</div>
+          </div>
+        </div>
+      </lightning-card>
+    </div>
+    <div class="slds-col">
+      <lightning-card>
+        <div class="slds-grid slds-grid_vertical slds-align_absolute-center">
+          <div class="slds-col">
+            <lightning-icon
+              icon-name="utility:clock"
+              alternative-text="travel"
+              title="travel"
+            >
+            </lightning-icon>
+          </div>
+          <div class="slds-col">
+            <div class="number-text" id="today-parking">
+              {todaysParkingCount}
+            </div>
+          </div>
+          <div class="slds-col">
+            <div>PARKING DONE WITHIN 24 HOURS</div>
+          </div>
+        </div>
+      </lightning-card>
+    </div>
+  </div>
+  <div class="slds-grid slds-gutters">
+    <div class="slds-col slds-var-p-around_medium slds-size_1-of-2">
+      <c-vpm-category-chart></c-vpm-category-chart>
+    </div>
+    <div class="slds-col slds-var-p-around_medium slds-size_1-of-2">
+      <!-- <c-vpm-category-chart></c-vpm-category-chart> -->
+      <c-vpm-in-out-chart></c-vpm-in-out-chart>
+    </div>
+  </div>
+  <div class="slds-grid slds-gutters">
+    <div class="slds-col slds-var-p-around_xxx-small slds-size_1-of-1">
+      <c-vpm-category-revenue-chart></c-vpm-category-revenue-chart>
+    </div>
+  </div>
+</template>

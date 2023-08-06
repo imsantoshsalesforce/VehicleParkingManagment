@@ -1,0 +1,85 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+  <lightning-card>
+    <div class="slds-p-bottom_small slds-p-left_medium slds-p-right_medium">
+      <div class="slds-grid">
+        <div class="slds-text-heading_small">
+          <b>Vehicle Entry Form</b>
+        </div>
+      </div>
+    </div>
+  </lightning-card>
+  <lightning-card>
+    <div class="slds-var-p-around_medium">
+      <!-- <h2>Vehicle Entry Form</h2>
+    <p class="slds-p-horizontal_small">Vehicle Entry Form</p> -->
+      <lightning-input
+        name="input-regNumber"
+        class="regNumber"
+        label="Registation Number"
+        value={regNumberValue}
+        onchange={getOnChangeValue}
+        type="string"
+        required
+      ></lightning-input
+      ><br />
+      <lightning-input
+        class="compName"
+        name="input-compName"
+        label="Vehicle Company Name"
+        value={vCompanyNameValue}
+        onchange={getOnChangeValue}
+        type="string"
+        required
+      ></lightning-input
+      ><br />
+      <template if:true={receivedData}>
+        <lightning-combobox
+          class="category"
+          name="Vehicle Category"
+          label="Vehicle Category"
+          value={value}
+          placeholder="Select Category"
+          options={categoryOptions}
+          onchange={handleChange}
+          required
+        >
+        </lightning-combobox>
+      </template>
+      <br />
+      <lightning-input
+        class="custName"
+        name="input-custName"
+        label="Customer Name"
+        value={custNameValue}
+        onchange={getOnChangeValue}
+        type="string"
+        required
+      ></lightning-input
+      ><br />
+      <lightning-input
+        class="custContact"
+        name="input-custContact"
+        label="Customer Contact"
+        value={custContactValue}
+        onchange={getOnChangeValue}
+        type="string"
+        required
+      ></lightning-input
+      ><br />
+      <button
+        class="slds-button slds-button_destructive"
+        onclick={cancelVehicleInfo}
+      >
+        Cancel
+      </button>
+      <button
+        class="slds-button slds-button_success"
+        onclick={submitVehicleInfo}
+      >
+        Submit
+      </button>
+    </div>
+  </lightning-card>
+</template>

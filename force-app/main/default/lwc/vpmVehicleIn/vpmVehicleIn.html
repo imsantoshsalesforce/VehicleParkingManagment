@@ -1,0 +1,206 @@
+<!-- sldsValidatorIgnore -->
+<template>
+  <template if:true={parkingInVehicleStatus}>
+    <lightning-card title="In Vehicles">
+      <!-- <p class="slds-p-horizontal_small">Vehicle In Entry Form</p> -->
+    </lightning-card>
+    <table class="VehicleInfoTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Vehicle no.</th>
+          <th>Company</th>
+          <th>Category</th>
+          <th>Parking Number</th>
+          <th>Vehicle Owner</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <template if:true={vehicleInfo.data}>
+          <template for:each={vehicleInfo.data} for:item="info">
+            <tr key={info.Id}>
+              <td></td>
+              <td>{info.registration_number__c}</td>
+              <td>{info.vehicle_company_name__c}</td>
+              <td>{info.vehicle_category__c}</td>
+              <td>{info.parking_number__c}</td>
+              <td>{info.owner_name__c}</td>
+              <td>
+                <button
+                  class="slds-badge slds-theme_warning"
+                  value={info.Id}
+                  onclick={updateParkingOutStatus}
+                >
+                  Take Action
+                </button>
+              </td>
+            </tr>
+          </template>
+        </template>
+      </tbody>
+    </table>
+  </template>
+
+  <template if:true={parkingOutStatus}>
+    <lightning-card title="Vehicle Entry Form">
+      <div class="slds-p-around_large">
+        <!-- <h2>Vehicle Entry Form</h2>
+      <p class="slds-p-horizontal_small">Vehicle Entry Form</p> -->
+        <lightning-input
+          class="input-field-regNumber"
+          name="input-regNumber"
+          label="Registation Number"
+          value={regNumberValue}
+          onchange={getOnChangeValue}
+          type="string"
+          disabled
+        ></lightning-input
+        ><br />
+        <lightning-input
+          class="input-field-compName"
+          name="input-compName"
+          label="Vehicle Company Name"
+          value={vCompanyNameValue}
+          onchange={getOnChangeValue}
+          type="string"
+          disabled
+        ></lightning-input
+        ><br />
+        <lightning-input
+          class="input-field-vehicleCat"
+          name="input-vehicleCat"
+          label="Vehicle Category"
+          value={vCategoryValue}
+          onchange={getOnChangeValue}
+          type="string"
+          disabled
+        ></lightning-input>
+
+        <!-- <template if:true={receivedData}>
+          <lightning-combobox
+            name="Vehicle Category"
+            label="Vehicle Category"
+            value={value}
+            placeholder="Selectii Category"
+            options={categoryOptions}
+            onchange={handleChange}
+          >
+          </lightning-combobox>
+        </template> -->
+
+        <br />
+        <lightning-input
+          class="input-field-custName"
+          name="input-custName"
+          label="Customer Name"
+          value={custNameValue}
+          onchange={getOnChangeValue}
+          type="string"
+          disabled
+        ></lightning-input
+        ><br />
+        <lightning-input
+          class="input-field-custContact"
+          name="input-custContact"
+          label="Customer Contact"
+          value={custContactValue}
+          onchange={getOnChangeValue}
+          type="string"
+          disabled
+        ></lightning-input
+        ><br />
+        <lightning-input
+          class="input-field-currentStatus"
+          name="input-currentStatus"
+          label="Current Status"
+          value={currentStatusValue}
+          onchange={getOnChangeValue}
+          type="string"
+          disabled
+        ></lightning-input
+        ><br />
+        <lightning-input
+          class="input-field-parkingNumber"
+          name="input-parkingNumber"
+          label="Parking"
+          value={parkingNumberValue}
+          onchange={getOnChangeValue}
+          type="string"
+          disabled
+        ></lightning-input
+        ><br />
+        <lightning-input
+          class="input-field-vehicleInTime"
+          name="input-vehicleInTime"
+          label="vehicle In Time"
+          value={vehicleInTimeValue}
+          onchange={getOnChangeValue}
+          type="string"
+          disabled
+        ></lightning-input
+        ><br />
+        <lightning-input
+          class="input-field-totalCharges"
+          name="input-totalCharges"
+          label="Total Charges"
+          value={totalChargesValue}
+          onchange={getOnChangeValue}
+          type="string"
+        ></lightning-input
+        ><br />
+        <lightning-combobox
+          class="input-field-status"
+          name="input-status"
+          label="Status"
+          value={statusValue}
+          options={statusOptions}
+          onchange={getOnChangeValue}
+        >
+        </lightning-combobox>
+        <br />
+        <!-- <lightning-input
+          class="input-field-status"
+          name="input-status"
+          label="Status"
+          value={statusValue}
+          onchange={getOnChangeValue}
+          type="string"
+        ></lightning-input
+        ><br /> -->
+        <!-- <template if:true={receivedData}>
+          <lightning-combobox
+            name="Vehicle Category"
+            label="Vehicle Category"
+            value={value}
+            placeholder="Selectii Category"
+            options={categoryOptions}
+            onchange={handleChange}
+          >
+          </lightning-combobox>
+        </template> -->
+        <lightning-input
+          class="input-field-remarks"
+          name="input-remarks"
+          label="Remarks"
+          value={remarksValue}
+          onchange={getOnChangeValue}
+          type="string"
+        ></lightning-input
+        ><br />
+        <button
+          class="slds-button slds-button_destructive"
+          onclick={resetFields}
+        >
+          Reset
+        </button>
+        <button
+          class="slds-button slds-button_success"
+          onclick={submitOutGoingVehicle}
+        >
+          SubmitForOutGoing
+        </button>
+      </div>
+    </lightning-card>
+  </template>
+</template>

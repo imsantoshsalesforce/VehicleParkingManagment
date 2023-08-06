@@ -1,0 +1,43 @@
+<template>
+  <!-- <lightning-card title="Vehicle Parking Managment">
+    <p class="slds-p-horizontal_small">{publisherMessage}</p>
+  </lightning-card> -->
+
+  <div class="slds-grid slds-grid_vertical">
+    <div class="slds-col">
+      <template if:true={booleanDashBoard}>
+        <c-vpm-dashboard></c-vpm-dashboard>
+      </template>
+    </div>
+    <div class="slds-col">
+      <template if:true={booleanVehicleEntry}>
+        <c-vpm-vehicle-entry></c-vpm-vehicle-entry>
+      </template>
+    </div>
+    <div class="slds-col">
+      <template if:true={booleanVehicleIn}>
+        <c-vpm-vehicle-in></c-vpm-vehicle-in>
+      </template>
+    </div>
+    <div class="slds-col">
+      <template if:true={booleanVehicleOut}>
+        <c-vpm-vehicle-out></c-vpm-vehicle-out>
+      </template>
+    </div>
+    <div class="slds-col">
+      <template if:true={booleanVehicleCategory}>
+        <c-vpm-vehicle-category></c-vpm-vehicle-category>
+      </template>
+    </div>
+    <div class="slds-col">
+      <template if:true={booleanViewReports}>
+        <c-vpm-view-reports></c-vpm-view-reports>
+      </template>
+    </div>
+    <div class="slds-col">
+      <template if:true={booleanTotalIncome}>
+        <c-vpm-total-income></c-vpm-total-income>
+      </template>
+    </div>
+  </div>
+</template>

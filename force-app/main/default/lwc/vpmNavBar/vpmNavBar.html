@@ -1,0 +1,41 @@
+<template>
+  <lightning-card>
+    <div style="width: 220px;">
+      <lightning-vertical-navigation
+        onselect={handleSelect}
+        selected-item="dashboard"
+      >
+        <lightning-vertical-navigation-section label="">
+          <lightning-vertical-navigation-item
+            label="Dashboard"
+            name="dashboard"
+          ></lightning-vertical-navigation-item>
+          <lightning-vertical-navigation-item
+            label="Vehicle Category"
+            name="vehicleCategory"
+          ></lightning-vertical-navigation-item>
+          <lightning-vertical-navigation-item
+            label="Vehicle Entry"
+            name="vehicleEntry"
+          ></lightning-vertical-navigation-item>
+          <lightning-vertical-navigation-item
+            label="IN Vehicles"
+            name="inVehicles"
+          ></lightning-vertical-navigation-item>
+          <lightning-vertical-navigation-item
+            label="OUT Vehicles"
+            name="outVehicles"
+          ></lightning-vertical-navigation-item>
+          <lightning-vertical-navigation-item
+            label="View Reports"
+            name="viewReports"
+          ></lightning-vertical-navigation-item>
+          <lightning-vertical-navigation-item
+            label="Total Income"
+            name="totalIncome"
+          ></lightning-vertical-navigation-item>
+        </lightning-vertical-navigation-section>
+      </lightning-vertical-navigation>
+    </div>
+  </lightning-card>
+</template>
